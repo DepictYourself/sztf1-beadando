@@ -9,7 +9,12 @@ namespace Beadando
     class Program
     {
         static void Main(string[] args)
-        {
+        {            
+            Console.WriteLine("Mekkora legyen a pálya ?");
+            int boardSize = int.Parse(Console.ReadLine());
+            Board gameBoard = new Board(boardSize);
+
+            Console.ReadLine();
         }
     }
 }
