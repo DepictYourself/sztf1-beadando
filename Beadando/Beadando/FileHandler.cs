@@ -10,6 +10,7 @@ namespace Beadando
     class FileHandler
     {
         private string filePath;
+        private string fileName = "teszt.txt";
 
         public FileHandler()
         {
