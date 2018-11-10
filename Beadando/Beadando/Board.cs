@@ -21,9 +21,28 @@ namespace Beadando
         {
             Random random = new Random();
 
-            
+            for(int boardIndex = 0; boardIndex < boardSize; boardIndex++)
+            {
+                do
+                {
+                    board[boardIndex] = new Card(words[random.Next(1, words.Length + 1)]);                    
+                } while (!(CountOccurrence(board[boardIndex].Word, boardIndex) < 2));
+            }
+        }
 
-            //TODO Figure out htf should i implement this.
+        private int CountOccurrence(string word, int countToIndex)
+        {
+            int occ = 0;
+            int index = 0;
+            while (index <= countToIndex)
+            {
+                if(word == board[index].Word)
+                {
+                    occ++;
+                }
+            }
+
+            return occ;
         }
     }
 }
