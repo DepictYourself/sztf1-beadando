@@ -22,7 +22,7 @@ namespace Beadando
             this.filePath = filePath;
         }
 
-        public string[] GetWordsFromFile(string filePath)
+        public static string[] GetWordsFromFile()
         {
             //TODO implement missing functionality to get word from file.
             return new string[] { "Disszipáció", "Soros"};
