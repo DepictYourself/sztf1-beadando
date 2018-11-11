@@ -49,18 +49,17 @@ namespace Beadando
             {
                 do
                 {
-                    board[boardIndex] = new Card(words[random.Next(1, words.Length + 1)]);                    
-                } while (!(CountOccurrence(board[boardIndex].Word, boardIndex) < 2));
+                    board[boardIndex] = new Card(words[random.Next(0, words.Length)]);
+                } while (!(CountOccurrence(board[boardIndex].Word, boardIndex) <= 2));
             }
         }
 
         private int CountOccurrence(string word, int countToIndex)
         {
             int occ = 0;
-            int index = 0;
-            while (index <= countToIndex)
+            for(int index = 0; index <= countToIndex; index++)
             {
-                if(word == board[index].Word)
+                if (word == board[index].Word)
                 {
                     occ++;
                 }
