@@ -22,10 +22,35 @@ namespace Beadando
             this.filePath = filePath;
         }
 
-        public static string[] GetWordsFromFile()
+        public static string[] GetRandomWordsFromFile(int boardSize)
         {
             //TODO implement missing functionality to get word from file.
-            return new string[] { "Disszipáció", "Soros"};
+            string[] words = new string[] { "Disszipáció", "Soros", "Valami", "Alma", "Bicigli", "Kukac", "Macbook", "Szar" };
+            Random random = new Random();
+            string[] randomWordArray = new string[boardSize / 2];
+            for (int i = 0; i < randomWordArray.Length; i++)
+            {
+                do
+                {
+                    randomWordArray[i] = words[random.Next(0, words.Length)];
+                } while (!(CountOccurrence(randomWordArray, randomWordArray[i], i) <= 1));
+            }
+
+            return randomWordArray;
+        }
+
+        private static int CountOccurrence(string[]randomWordArray, string word, int countToIndex)
+        {
+            int occ = 0;
+            for (int index = 0; index <= countToIndex; index++)
+            {
+                if (word == randomWordArray[index])
+                {
+                    occ++;
+                }
+            }
+
+            return occ;
         }
     }
 }

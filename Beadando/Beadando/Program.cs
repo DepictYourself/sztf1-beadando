@@ -14,7 +14,12 @@ namespace Beadando
             int boardSize = int.Parse(Console.ReadLine());
             Board gameBoard = new Board(boardSize);
 
+            gameBoard.FillBoard(FileHandler.GetRandomWordsFromFile(gameBoard.BoardSize));
+
+            Console.WriteLine(gameBoard.GetFormattedBoard());
+
             Console.ReadLine();
         }
+        
     }
 }

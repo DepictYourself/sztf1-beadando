@@ -49,7 +49,7 @@ namespace Beadando
             {
                 do
                 {
-                    board[boardIndex] = new Card(words[random.Next(0, words.Length)]);
+                    board[boardIndex] = new Card(words[random.Next(0, words.Length)]);                    
                 } while (!(CountOccurrence(board[boardIndex].Word, boardIndex) <= 2));
             }
         }
