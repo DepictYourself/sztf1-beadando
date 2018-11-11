@@ -31,10 +31,10 @@ namespace Beadando
             {
                 if(i + 1 % Math.Sqrt(boardSize) == 0)
                 {
-                    formattedGameBoard = board[i].Word + ";\n";
+                    formattedGameBoard += board[i].Word + ";\n";
                 }else
                 {
-                    formattedGameBoard = board[i].Word + ";";
+                    formattedGameBoard += board[i].Word + ";";
                 }                
             }
 
