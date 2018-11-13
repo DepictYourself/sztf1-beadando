@@ -9,36 +9,50 @@ namespace Beadando
     class Board
     {
         private int boardSize;
-        private Card[] board;
+        private Card[] gameBoard;
 
         public int BoardSize
         {
             get { return boardSize; }
         }
 
+        public Card[] GameBoard
+        {
+            get { return gameBoard; }
+        }
+
 
         public Board(int boardSize)
         {
             this.boardSize = boardSize;
-            board = new Card[this.boardSize];
+            gameBoard = new Card[this.boardSize];
         }
 
 
         public string GetFormattedBoard()
         {
             string formattedGameBoard = "";
-            for(int i = 0; i < board.Length; i++)
+            for(int i = 0; i < gameBoard.Length; i++)
             {
-                if((i + 1) % Math.Sqrt(boardSize) == 0)
+                if (gameBoard[i].Active)
                 {
-                    formattedGameBoard += (i + 1) + " \n";
-                }else if (i + 1 < 10)
+                    if ((i + 1) % Math.Sqrt(boardSize) == 0)
+                    {
+                        formattedGameBoard += (i + 1) + " \n";
+                    }
+                    else if (i + 1 < 10)
+                    {
+                        formattedGameBoard += (i + 1) + "  ";
+                    }
+                    else
+                    {
+                        formattedGameBoard += (i + 1) + " ";
+                    }
+                }else
                 {
-                    formattedGameBoard += (i + 1) + "  ";
-                } else
-                {
-                    formattedGameBoard += (i + 1) + " ";
-                }                
+                    formattedGameBoard += "   ";
+                }
+
             }
 
             return formattedGameBoard;
@@ -52,8 +66,8 @@ namespace Beadando
             {
                 do
                 {
-                    board[boardIndex] = new Card(words[random.Next(0, words.Length)]);                    
-                } while (!(CountOccurrence(board[boardIndex].Word, boardIndex) <= 2));
+                    gameBoard[boardIndex] = new Card(words[random.Next(0, words.Length)]);                    
+                } while (!(CountOccurrence(gameBoard[boardIndex].Word, boardIndex) <= 2));
             }
         }
 
@@ -62,7 +76,7 @@ namespace Beadando
             int occ = 0;
             for(int index = 0; index <= countToIndex; index++)
             {
-                if (word == board[index].Word)
+                if (word == gameBoard[index].Word)
                 {
                     occ++;
                 }
