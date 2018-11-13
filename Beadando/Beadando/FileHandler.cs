@@ -25,7 +25,10 @@ namespace Beadando
         public static string[] GetRandomWordsFromFile(int boardSize)
         {
             //TODO implement missing functionality to get word from file.
-            string[] words = new string[] { "Disszipáció", "Soros", "Valami", "Alma", "Bicigli", "Kukac", "Macbook", "Szar" };
+            string[] words = new string[] { "Disszipáció", "Soros", "Valami", "Alma",
+                "Bicigli", "Kukac", "Macbook", "Szalámi",
+                "Lufi", "Kutya", "Kukorica", "Kalapács",
+                "Szörny", "Lámpa", "Villamos", "Rendőr", "Arany", "Pohár"};
             Random random = new Random();
             string[] randomWordArray = new string[boardSize / 2];
             for (int i = 0; i < randomWordArray.Length; i++)
