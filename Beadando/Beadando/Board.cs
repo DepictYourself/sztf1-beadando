@@ -29,12 +29,15 @@ namespace Beadando
             string formattedGameBoard = "";
             for(int i = 0; i < board.Length; i++)
             {
-                if(i + 1 % Math.Sqrt(boardSize) == 0)
+                if((i + 1) % Math.Sqrt(boardSize) == 0)
                 {
-                    formattedGameBoard += board[i].Word + ";\n";
-                }else
+                    formattedGameBoard += (i + 1) + " \n";
+                }else if (i + 1 < 10)
                 {
-                    formattedGameBoard += board[i].Word + ";";
+                    formattedGameBoard += (i + 1) + "  ";
+                } else
+                {
+                    formattedGameBoard += (i + 1) + " ";
                 }                
             }
 
