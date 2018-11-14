@@ -31,11 +31,14 @@ namespace Beadando
 
         public string GetFormattedBoard()
         {
+            //Ez a metódus egy stringet csinál a gameBoard tömbből.
             string formattedGameBoard = "";
             for(int i = 0; i < gameBoard.Length; i++)
             {
+                //Ha egy kártya aktív akkor kiírjuk a számot.
                 if (gameBoard[i].Active)
                 {
+                    //A tábla szélén törjük a sort.
                     if ((i + 1) % Math.Sqrt(boardSize) == 0)
                     {
                         formattedGameBoard += (i + 1) + " \n";
