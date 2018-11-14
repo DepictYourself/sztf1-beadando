@@ -53,7 +53,7 @@ namespace Beadando
 
         public int FormatPick(string pick)
         {
-            return int.Parse(pick.Trim());
+            return int.Parse(pick.Trim()) - 1;
         }
     }
 }
