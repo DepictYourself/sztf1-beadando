@@ -13,7 +13,7 @@ namespace Beadando
         {            
             Console.WriteLine("Mekkora legyen a pálya ?");
             int boardSize = int.Parse(Console.ReadLine());
-            Console.WriteLine("Nehézség (Hány másodpercig mutassuk a kártyákat.)");
+            Console.WriteLine("Nehézség (Hány másodpercig mutassuk a szavakat)");
             int difficulty = int.Parse(Console.ReadLine());
 
             Board gameBoard = new Board(boardSize);
@@ -25,16 +25,18 @@ namespace Beadando
                 Console.Clear();
                 Console.WriteLine(gameBoard.GetFormattedBoard());
                 Console.WriteLine("Adj meg két kártyát vesszővel elválasztva.");
-                string[] picks = Console.ReadLine().Split(',');                
-                Console.WriteLine(picks[0] + ": " + gameBoard.GameBoard[int.Parse(picks[0].Trim())].Word);
-                Console.WriteLine(picks[1] + ": " + gameBoard.GameBoard[int.Parse(picks[1].Trim())].Word);
-                if (gameController.Pick(gameBoard.GameBoard[int.Parse(picks[0].Trim())].Word,
-                    gameBoard.GameBoard[int.Parse(picks[1].Trim())].Word))
+                string[] picks = Console.ReadLine().Split(',');
+                gameController.FirstPick = gameController.FormatPick(picks[0]);
+                gameController.SecondPick = gameController.FormatPick(picks[1]);
+                Console.WriteLine(picks[0] + ": " + gameBoard.GameBoard[gameController.FirstPick].Word);
+                Console.WriteLine(picks[1] + ": " + gameBoard.GameBoard[gameController.SecondPick].Word);
+                if (gameBoard.GameBoard[gameController.FirstPick].Word ==
+                    gameBoard.GameBoard[gameController.SecondPick].Word)
                 {
                     Console.WriteLine("TALÁLT!");
                     Thread.Sleep(2000);
-                    gameBoard.GameBoard[int.Parse(picks[0].Trim())].Active = false;
-                    gameBoard.GameBoard[int.Parse(picks[1].Trim())].Active = false;
+                    gameBoard.GameBoard[gameController.FirstPick].Active = false;
+                    gameBoard.GameBoard[gameController.SecondPick].Active = false;
                 }
                 else
                 {

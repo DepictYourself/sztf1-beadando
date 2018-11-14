@@ -8,9 +8,11 @@ namespace Beadando
 {
     class Game
     {
-        private bool gameOver;
-        private int attempts;
+        private bool gameOver;        
         private int difficulty;
+        private int attempts;
+        private int firstPick;
+        private int secondPick;
 
         public bool GameOver
         {
@@ -29,6 +31,18 @@ namespace Beadando
             get { return difficulty; }
         }
 
+        public int FirstPick
+        {
+            get { return firstPick; }
+            set { firstPick = value; }
+        }
+
+        public int SecondPick
+        {
+            get { return secondPick; }
+            set { secondPick = value; }
+        }
+
 
         public Game(int difficulty)
         {
@@ -37,16 +51,9 @@ namespace Beadando
             this.difficulty = difficulty;
         }
 
-
-        public bool Pick(string firstWord, string secondWord)
+        public int FormatPick(string pick)
         {
-            if(firstWord.Trim() == secondWord.Trim())
-            {
-                return true;
-            } else
-            {
-                return false;
-            }
+            return int.Parse(pick.Trim());
         }
     }
 }
