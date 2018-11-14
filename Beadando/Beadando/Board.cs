@@ -50,7 +50,14 @@ namespace Beadando
                     }
                 }else
                 {
-                    formattedGameBoard += "   ";
+                    if((i + 1) % Math.Sqrt(boardSize) == 0)
+                    {
+                        formattedGameBoard += "   \n";
+                    }
+                    else
+                    {
+                        formattedGameBoard += "   ";
+                    }                    
                 }
 
             }
