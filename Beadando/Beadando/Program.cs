@@ -52,8 +52,8 @@ namespace Beadando
                 }
 
             } while (!gameController.GameOver);
-
-            Console.WriteLine("Gratulálok, Nyertél! Vége a játéknak.");
+            Console.Clear();
+            Console.WriteLine("Gratulálok, Nyertél! {0} lépésből. Vége a játéknak.", gameController.Attempts);
             Console.WriteLine("Nyomj meg egy gombot a kilépéshez.");
             Console.ReadLine();
         }
