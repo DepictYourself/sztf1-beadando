@@ -10,6 +10,7 @@ namespace Beadando
     {
         private int boardSize;
         private Card[] gameBoard;
+        private int numOfPairs;
 
         public int BoardSize
         {
@@ -21,11 +22,18 @@ namespace Beadando
             get { return gameBoard; }
         }
 
+        public int NumOfPairs
+        {
+            get { return numOfPairs; }
+            set { numOfPairs = value; }
+        }
+
 
         public Board(int boardSize)
         {
             this.boardSize = boardSize;
             gameBoard = new Card[this.boardSize];
+            this.numOfPairs = boardSize / 2;
         }
 
 
