@@ -51,6 +51,7 @@ namespace Beadando
             this.difficulty = difficulty;
         }
 
+
         public int FormatPick(string pick)
         {
             return int.Parse(pick.Trim()) - 1;

@@ -30,22 +30,31 @@ namespace Beadando
                 gameController.SecondPick = gameController.FormatPick(picks[1]);
                 Console.WriteLine(picks[0] + ": " + gameBoard.GameBoard[gameController.FirstPick].Word);
                 Console.WriteLine(picks[1] + ": " + gameBoard.GameBoard[gameController.SecondPick].Word);
+                gameController.Attempts++;
                 if (gameBoard.GameBoard[gameController.FirstPick].Word ==
                     gameBoard.GameBoard[gameController.SecondPick].Word)
                 {
                     Console.WriteLine("TALÁLT!");
-                    Thread.Sleep(2000);
                     gameBoard.GameBoard[gameController.FirstPick].Active = false;
                     gameBoard.GameBoard[gameController.SecondPick].Active = false;
+                    gameBoard.NumOfPairs--;
                 }
                 else
                 {
                     Console.WriteLine("Nem talált.");
-                    Thread.Sleep(gameController.Difficulty * 1000);
                 }
-            }while (!gameController.GameOver);
-            
+                Console.WriteLine("Eddigi próbálkozások száma: {0}", gameController.Attempts);
+                Console.WriteLine("Hátralévő páros száma: {0}", gameBoard.NumOfPairs);
+                Thread.Sleep(gameController.Difficulty * 1000);
+                if (gameBoard.NumOfPairs == 0)
+                {
+                    gameController.GameOver = true;
+                }
 
+            } while (!gameController.GameOver);
+
+            Console.WriteLine("Gratulálok, Nyertél! Vége a játéknak.");
+            Console.WriteLine("Nyomj meg egy gombot a kilépéshez.");
             Console.ReadLine();
         }
         
