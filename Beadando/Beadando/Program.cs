@@ -17,13 +17,18 @@ namespace Beadando
             int difficulty = int.Parse(Console.ReadLine());
 
             Board gameBoard = new Board(boardSize);
-            gameBoard.FillBoard(FileHandler.GetRandomWordsFromFile(gameBoard.BoardSize));
+            FileHandler fileHandler = new FileHandler();
+
+            gameBoard.FillBoard(fileHandler.GetRandomWordsFromFile(gameBoard.BoardSize));
 
             Game gameController = new Game(difficulty);
+
             do
             {
                 Console.Clear();
+
                 Console.WriteLine(gameBoard.GetFormattedBoard());
+
                 Console.WriteLine("Adj meg két kártyát vesszővel elválasztva.");
                 string[] picks = Console.ReadLine().Split(',');
                 gameController.FirstPick = gameController.FormatPick(picks[0]);
@@ -31,6 +36,7 @@ namespace Beadando
                 Console.WriteLine(picks[0] + ": " + gameBoard.GameBoard[gameController.FirstPick].Word);
                 Console.WriteLine(picks[1] + ": " + gameBoard.GameBoard[gameController.SecondPick].Word);
                 gameController.Attempts++;
+
                 if (gameBoard.GameBoard[gameController.FirstPick].Word ==
                     gameBoard.GameBoard[gameController.SecondPick].Word)
                 {
@@ -46,6 +52,7 @@ namespace Beadando
                 Console.WriteLine("Eddigi próbálkozások száma: {0}", gameController.Attempts);
                 Console.WriteLine("Hátralévő páros száma: {0}", gameBoard.NumOfPairs);
                 Thread.Sleep(gameController.Difficulty * 1000);
+
                 if (gameBoard.NumOfPairs == 0)
                 {
                     gameController.GameOver = true;
