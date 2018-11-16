@@ -28,11 +28,17 @@ namespace Beadando
                 Console.Clear();
 
                 Console.WriteLine(gameBoard.GetFormattedBoard());
+                string[] picks;
 
-                Console.WriteLine("Adj meg két kártyát vesszővel elválasztva.");
-                string[] picks = Console.ReadLine().Split(',');
-                gameController.FirstPick = gameController.FormatPick(picks[0]);
-                gameController.SecondPick = gameController.FormatPick(picks[1]);
+                do
+                {
+                    Console.WriteLine("Adj meg két kártyát vesszővel elválasztva.");
+                    picks = Console.ReadLine().Split(',');
+                    gameController.FirstPick = gameController.FormatPick(picks[0]);
+                    gameController.SecondPick = gameController.FormatPick(picks[1]);
+                } while (!gameController.ValidPicks(ref gameBoard));
+                
+                
                 Console.WriteLine(picks[0] + ": " + gameBoard.GameBoard[gameController.FirstPick].Word);
                 Console.WriteLine(picks[1] + ": " + gameBoard.GameBoard[gameController.SecondPick].Word);
                 gameController.Attempts++;

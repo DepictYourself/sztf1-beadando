@@ -49,12 +49,24 @@ namespace Beadando
             this.gameOver = false;
             this.attempts = 0;
             this.difficulty = difficulty;
-        }
-
+        }        
 
         public int FormatPick(string pick)
         {
             return int.Parse(pick.Trim()) - 1;
+        }
+
+        public bool ValidPicks(ref Board gameBoard)
+        {
+            if(firstPick == secondPick || 
+                gameBoard.GameBoard[firstPick].Active == false || 
+                gameBoard.GameBoard[secondPick].Active == false)
+            {
+                return false;
+            }else
+            {
+                return true;
+            }
         }
     }
 }
