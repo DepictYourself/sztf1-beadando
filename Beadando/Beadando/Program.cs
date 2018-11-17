@@ -36,7 +36,7 @@ namespace Beadando
                     picks = Console.ReadLine().Split(',');
                     gameController.FirstPick = gameController.FormatPick(picks[0]);
                     gameController.SecondPick = gameController.FormatPick(picks[1]);
-                } while (!gameController.ValidPicks(ref gameBoard));
+                } while (!gameBoard.ValidatePicks(gameController.FirstPick, gameController.SecondPick));
                 
                 
                 Console.WriteLine(picks[0] + ": " + gameBoard.GameBoard[gameController.FirstPick].Word);

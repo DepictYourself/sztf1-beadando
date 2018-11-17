@@ -102,5 +102,19 @@ namespace Beadando
 
             return occ;
         }
+
+        public bool ValidatePicks(int firstPick, int secondPick)
+        {
+            if (firstPick == secondPick ||
+                gameBoard[firstPick].Active == false ||
+                gameBoard[secondPick].Active == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

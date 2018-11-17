@@ -55,18 +55,5 @@ namespace Beadando
         {
             return int.Parse(pick.Trim()) - 1;
         }
-
-        public bool ValidPicks(ref Board gameBoard)
-        {
-            if(firstPick == secondPick || 
-                gameBoard.GameBoard[firstPick].Active == false || 
-                gameBoard.GameBoard[secondPick].Active == false)
-            {
-                return false;
-            }else
-            {
-                return true;
-            }
-        }
     }
 }
