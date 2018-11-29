@@ -11,9 +11,9 @@ namespace Beadando
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Mekkora legyen a pálya ?");
+            Console.WriteLine("Mekkora legyen a pálya ? (páros szám >= 2)");
             int boardSize = int.Parse(Console.ReadLine());
-            Console.WriteLine("Nehézség (Hány másodpercig mutassuk a szavakat)");            
+            Console.WriteLine("Nehézség (Hány másodpercig mutassuk a felfordított kátyát)");            
             int difficulty = int.Parse(Console.ReadLine());
 
             Board gameBoard = new Board(boardSize);
